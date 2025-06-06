@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthValidators} from "../../shared/validators/auth-validators";
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +25,9 @@ export class SignUpComponent {
       Validators.minLength(4),
       Validators.maxLength(20)
     ])
-  })
+  }, [
+    AuthValidators.matchFields('password', 'passwordConfirmation')
+  ])
 
   onSubmit() {
 
