@@ -1,8 +1,8 @@
 <div class="field">
   <label>{{ label }}</label>
-  <input [formControl]="control" placeholder="Enter {{ label }}"/>
+  <input [formControl]="control" [type]="inputType" placeholder="Enter {{ label }}"/>
 
-  <ng-container *ngIf="control.errors && control.touched && control.dirty">
+  <div *ngIf="control.errors && control.touched && control.dirty" class="ui pointing red basic label">
     <div *ngIf="control.errors['required']">
       Please enter a valid input.
     </div>
