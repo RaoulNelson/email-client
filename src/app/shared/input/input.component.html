@@ -14,5 +14,14 @@
       Max Length of chars is {{ control.errors['maxlength'].requiredLength }},
       while your input is {{ control.errors['maxlength'].actualLength }} chars long.
     </div>
-  </ng-container>
+    <div *ngIf="control.errors['pattern']">
+      Invalid input. Only enter letters or numbers.
+    </div>
+    <div *ngIf="control.errors['nonUniqueUsername']">
+      Username already taken.
+    </div>
+    <div *ngIf="control.errors['noConnection']">
+      Cannot tell if username is taken.
+    </div>
+  </div>
 </div>
