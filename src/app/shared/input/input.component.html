@@ -1,0 +1,27 @@
+<div class="field">
+  <label>{{ label }}</label>
+  <input [formControl]="control" [type]="inputType" placeholder="Enter {{ label }}"/>
+
+  <div *ngIf="control.errors && control.touched && control.dirty" class="ui pointing red basic label">
+    <div *ngIf="control.errors['required']">
+      Please enter a valid input.
+    </div>
+    <div *ngIf="control.errors['minlength']">
+      Min Length of chars is {{ control.errors['minlength'].requiredLength }},
+      while your input is {{ control.errors['minlength'].actualLength }} chars long.
+    </div>
+    <div *ngIf="control.errors['maxLength']">
+      Max Length of chars is {{ control.errors['maxlength'].requiredLength }},
+      while your input is {{ control.errors['maxlength'].actualLength }} chars long.
+    </div>
+    <div *ngIf="control.errors['pattern']">
+      Invalid input. Only enter letters or numbers.
+    </div>
+    <div *ngIf="control.errors['nonUniqueUsername']">
+      Username already taken.
+    </div>
+    <div *ngIf="control.errors['noConnection']">
+      Cannot tell if username is taken.
+    </div>
+  </div>
+</div>
